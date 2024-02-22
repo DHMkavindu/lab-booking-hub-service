@@ -14,6 +14,8 @@ public class DoctorAppointment {
 
     private Date create_date;
 
+    private Boolean status;
+
     @ManyToOne
     @JoinColumn(name="doctor_id", nullable=false)
     private Doctors doctors;
@@ -45,6 +47,14 @@ public class DoctorAppointment {
 
     public void setCreate_date(Date create_date) {
         this.create_date = create_date;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public Doctors getDoctors() {
