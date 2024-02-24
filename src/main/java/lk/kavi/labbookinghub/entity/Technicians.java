@@ -3,6 +3,8 @@ package lk.kavi.labbookinghub.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Set;
+
 @Entity
 @Data
 public class Technicians {
@@ -16,4 +18,12 @@ public class Technicians {
     private String tech_specialization;
 
     private boolean availability;
+
+    private Integer max_appointment_count;
+
+    @OneToMany(mappedBy="technicians")
+    private Set<TechniciansAppointment> techniciansAppointments;
+
+    @OneToMany(mappedBy="technicians")
+    private Set<TestResult> testResults;
 }

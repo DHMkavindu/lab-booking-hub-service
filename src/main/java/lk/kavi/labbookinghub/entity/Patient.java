@@ -21,6 +21,13 @@ public class Patient {
     private Integer age;
 
     private String gender;
+
     @OneToMany(mappedBy="patient")
     private Set<DoctorAppointment> doctorAppointments;
+
+    @OneToMany(mappedBy="patient")
+    private Set<TestResult> testResults;
+
+    @OneToMany(mappedBy="patient")
+    private Set<TechniciansAppointment> techniciansAppointments;
 }

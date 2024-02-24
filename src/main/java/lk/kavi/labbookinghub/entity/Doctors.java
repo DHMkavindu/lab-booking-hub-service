@@ -22,6 +22,14 @@ public class Doctors {
 
 	private boolean availability;
 
+	private Integer max_appointment_count;
+
 	@OneToMany(mappedBy="doctors")
 	private Set<DoctorAppointment> doctorAppointments;
+
+	@OneToMany(mappedBy="doctors")
+	private Set<TestResult> testResults;
+
+	@OneToMany(mappedBy="doctors")
+	private Set<TechniciansAppointment> techniciansAppointments;
 }
