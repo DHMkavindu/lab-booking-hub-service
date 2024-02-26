@@ -24,6 +24,8 @@ public class Doctors {
 
 	private Integer max_appointment_count;
 
+	private String NIC;
+
 	@OneToMany(mappedBy="doctors")
 	private Set<DoctorAppointment> doctorAppointments;
 

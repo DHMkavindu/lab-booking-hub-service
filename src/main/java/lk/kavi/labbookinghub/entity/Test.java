@@ -1,9 +1,6 @@
 package lk.kavi.labbookinghub.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -19,4 +16,8 @@ public class Test {
     private String test_category;
 
     private Boolean avaliable;
+
+    @ManyToOne
+    @JoinColumn(name="tech_id", nullable=false)
+    private Technicians technicians;
 }

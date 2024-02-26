@@ -12,4 +12,6 @@ public class TestDto {
     private String test_category;
 
     private Boolean avaliable;
+
+    private TechniciansDTO techniciansDTO;
 }

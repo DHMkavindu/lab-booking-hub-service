@@ -11,13 +11,15 @@ import java.util.List;
 @Service
 public interface TestService {
 
-    Test addNewTest(Test test);
+    TestDto addNewTest(Test test);
 
     List<TestDto> fetchAll();
 
     List<TestDto> fetchAvailableTests(Boolean available);
 
-    Test updateTestDetails(Test test,
+    List<TestDto> fetchTestsFromTechnicians(Integer tech_id);
+
+    TestDto updateTestDetails(TestDto testDto,
                              Integer testId);
 
     void removeTestDetails(Integer testId);

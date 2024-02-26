@@ -22,6 +22,8 @@ public class Patient {
 
     private String gender;
 
+    private String NIC;
+
     @OneToMany(mappedBy="patient")
     private Set<DoctorAppointment> doctorAppointments;
 

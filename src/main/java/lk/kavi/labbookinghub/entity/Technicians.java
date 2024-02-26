@@ -21,9 +21,14 @@ public class Technicians {
 
     private Integer max_appointment_count;
 
+    private String NIC;
+
     @OneToMany(mappedBy="technicians")
     private Set<TechniciansAppointment> techniciansAppointments;
 
     @OneToMany(mappedBy="technicians")
     private Set<TestResult> testResults;
+
+    @OneToMany(mappedBy="technicians")
+    private Set<Test> test;
 }
