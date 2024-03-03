@@ -1,16 +1,16 @@
 package lk.kavi.labbookinghub.service;
 
+import lk.kavi.labbookinghub.dto.DoctorDto;
 import lk.kavi.labbookinghub.entity.Doctors;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface DoctorService {
 
-    Doctors doctorRegistration(Doctors doctors);
+    DoctorDto doctorRegistration(Doctors doctors);
 
-    List<Doctors> fetchDoctors();
+    List<DoctorDto> fetchDoctors();
 
     Doctors updateDepartment(Doctors doctors,
                                 Integer doctorId);

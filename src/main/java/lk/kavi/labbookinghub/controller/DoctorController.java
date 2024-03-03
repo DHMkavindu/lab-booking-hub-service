@@ -1,17 +1,56 @@
 package lk.kavi.labbookinghub.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lk.kavi.labbookinghub.dto.DoctorDto;
+import lk.kavi.labbookinghub.entity.Doctors;
+import lk.kavi.labbookinghub.service.DoctorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class DoctorController {
 
+    @Autowired
+    private DoctorService doctorService;
+
     @GetMapping(path="/all")
     private String test(){
         return "Test";
+    }
+
+    // Save operation
+    @PostMapping("/doctor")
+    public DoctorDto saveDoctor(
+            @RequestBody Doctors doctors)
+    {
+        return doctorService.doctorRegistration(doctors);
+    }
+
+    // Read operation
+    @GetMapping("/doctor")
+    public List<DoctorDto> fetchDoctorList()
+    {
+        return doctorService.fetchDoctors();
+    }
+
+    // Update operation
+    @PutMapping("/doctor/{id}")
+    public Doctors
+    updateDoctorDetails(@RequestBody Doctors doctors,
+               @PathVariable("id") Integer doctorId)
+    {
+        return doctorService.updateDepartment(doctors, doctorId);
+    }
+
+    // Delete operation
+    @DeleteMapping("/doctor/{id}")
+    public String deleteDoctorById(@PathVariable("id")
+                                 Integer doctorId)
+    {
+        doctorService.deleteDoctors(
+                doctorId);
+        return "Deleted Successfully";
     }
 
 

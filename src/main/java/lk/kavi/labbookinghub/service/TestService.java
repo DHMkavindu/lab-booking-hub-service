@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface TestService {
 
     TestDto addNewTest(Test test);
@@ -19,7 +18,7 @@ public interface TestService {
 
     List<TestDto> fetchTestsFromTechnicians(Integer tech_id);
 
-    TestDto updateTestDetails(TestDto testDto,
+    Test updateTestDetails(Test test,
                              Integer testId);
 
     void removeTestDetails(Integer testId);

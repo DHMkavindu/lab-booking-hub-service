@@ -1,19 +1,19 @@
 package lk.kavi.labbookinghub.service;
 
+import lk.kavi.labbookinghub.dto.TestResultDTO;
 import lk.kavi.labbookinghub.entity.Test;
 import lk.kavi.labbookinghub.entity.TestResult;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface TestResultService {
 
-    TestResult addNewTestResult(TestResult testResult);
+    TestResultDTO addNewTestResult(TestResult testResult);
 
-    List<TestResult> fetchAll();
+    List<TestResultDTO> fetchAll();
 
-    TestResult updateTestResultDetails(TestResult testResult,
+    TestResultDTO updateTestResultDetails(TestResult testResult,
                            Integer testId);
 
     void removeTestDetails(Integer testId);

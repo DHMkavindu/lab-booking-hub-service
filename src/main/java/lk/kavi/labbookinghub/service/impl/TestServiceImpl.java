@@ -5,11 +5,13 @@ import lk.kavi.labbookinghub.entity.Test;
 import lk.kavi.labbookinghub.repo.TestRepository;
 import lk.kavi.labbookinghub.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Service
 public class TestServiceImpl implements TestService {
 
     @Autowired
@@ -105,9 +107,23 @@ public class TestServiceImpl implements TestService {
 
 
     @Override
-    public TestDto updateTestDetails(TestDto testDto, Integer testId) {
+    public Test updateTestDetails(Test test, Integer testId) {
         try{
-            return null;
+            Test tests = testRepository.findById(testId).get();
+
+            if(Objects.nonNull(test.getTest_name()) && !"".equalsIgnoreCase(test.getTest_name())){
+                tests.setTest_name(test.getTest_name());
+            }
+
+            if(Objects.nonNull(test.getTest_category()) && !"".equalsIgnoreCase(test.getTest_category())){
+                tests.setTest_category(test.getTest_category());
+            }
+
+            if(Objects.nonNull(test.getAvaliable())){
+                tests.setAvaliable(test.getAvaliable());
+            }
+
+           return testRepository.save(tests);
         }catch (Exception ex){
             ex.printStackTrace();
             return null;
