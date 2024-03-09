@@ -2,7 +2,6 @@ package lk.kavi.labbookinghub.service;
 
 import lk.kavi.labbookinghub.dto.DoctorDto;
 import lk.kavi.labbookinghub.entity.Doctors;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
