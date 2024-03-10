@@ -1,51 +1,37 @@
 package lk.kavi.labbookinghub.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.Set;
 
 @Entity
+@Data
+@Table(name = "Doctors")
 public class Doctors {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
-	private String name;
+	private String doctor_name;
 
-	private String email;
+	private String doctor_email;
 
-	public Integer getId() {
-		return id;
-	}
+	private String doctor_specialization;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	private boolean availability;
 
-	public String getName() {
-		return name;
-	}
+	private Integer max_appointment_count;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+	private String NIC;
 
-	public String getEmail() {
-		return email;
-	}
+	@OneToMany(mappedBy="doctors")
+	private Set<DoctorAppointment> doctorAppointments;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	@OneToMany(mappedBy="doctors")
+	private Set<TestResult> testResults;
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", getId()=" + getId() + ", getName()="
-				+ getName() + ", getEmail()=" + getEmail() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
-	}
-	
-	
+	@OneToMany(mappedBy="doctors")
+	private Set<TechniciansAppointment> techniciansAppointments;
 }
